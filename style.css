@@ -1,31 +1,31 @@
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+body {}
 
 .tabela {
+    width: 50%;
+    height: 40%;
     border: 1px solid black;
 }
 
-.nome {
-    border: 1px solid black;
+.linha {
+    display: flex;
+    align-items: center;
+    height: 33px;
 }
 
-.usuario {
-    border: 1px solid black;
+.colunaNome {
+    width: 50%;
+    height: 20px;
+    border: solid 1px black;
 }
 
-th {
-    border: 1px solid black;
+.colunaUsuario {
+    width: 50%;
+    height: 20px;
+    border: solid 1px black;
 }
 
-td {
-    border: 1px solid black;
+.botao {
+    width: 60px;
+    height: 40px;
+    background-color: pink;
 }

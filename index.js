@@ -1,4 +1,5 @@
 let header = document.createElement('header');
+let main = document.querySelector('body');
 let titulo = document.createElement('h1');
 document.body.appendChild(header);
 header.appendChild(titulo);
@@ -27,65 +28,34 @@ let lista = [
     { Nome: 'Bruna Alves Mafra', Usuario: 'BMafra' },
     { Nome: 'Otavio Matheus Neves', Usuario: 'otavionvs' },
 ];
-console.log('lista');
 
-function tabela() {
-    let main = document.createElement('main');
-    const tabelatotal = document.createElement('table');
-    const linha = document.createElement('tr');
-    const colunaNome = document.createElement('th');
-    const colunaUser = document.createElement('th');
-    const colunaBotao = document.createElement('th');
+let tabela = document.createElement('div');
+tabela.className = "tabela";
+main.appendChild(tabela);
 
-    document.body.appendChild(main);
-    main.appendChild(tabelatotal);
+lista.forEach(function(element) {
+    let linha = document.createElement('div');
+    tabela.appendChild(linha);
+    linha.className = "linha";
+
+    let colunaNome = document.createElement('div');
     linha.appendChild(colunaNome);
-    linha.appendChild(colunaUser);
-    linha.appendChild(colunaBotao);
-    tabelatotal.appendChild(linha);
+    colunaNome.className = "colunaNome";
 
-    colunaNome.innerText = "Nome";
-    colunaUser.innerText = "Usuário";
-    colunaBotao.innerText = "Acessar";
+    let colunaUsuario = document.createElement('div');
+    linha.appendChild(colunaUsuario);
+    colunaUsuario.className = "colunaUsuario";
 
-    tabelatotal.className = "tabela";
-    colunaNome.className = 'nome';
-    colunaUser.className = 'usuario';
-
-    lista.forEach(function(element) {
-        console.log('element:', element);
-        const linhastabela = tabelalista(
-            element.Nome,
-            element.Usuario);
-
-        tabelatotal.appendChild(linhastabela);
-
-
-
-    })
-}
-tabela();
-
-function tabelalista(nome, usuario) {
-    const linha = document.createElement('tr');
-    const colunaNome = document.createElement('td');
-    const colunaUser = document.createElement('td');
     let botao = document.createElement('button');
-
-
-    colunaNome.innerText = nome;
-    colunaUser.innerText = usuario;
-    botao.innerText = "Acessar";
-
-
-    linha.appendChild(colunaNome);
-    linha.appendChild(colunaUser);
     linha.appendChild(botao);
+    botao.className = "botao";
+    botao.innerText = "Ver dados";
 
+    colunaNome.innerText = element.Nome;
+    colunaUsuario.innerText = element.Usuario;
 
-    botao.addEventListener('click', function(element) {
+    botao.onclick = function() {
         location.href = `./userPage/index2.html?${element.Usuario}`;
-    })
+    }
 
-    return linha;
-}
+})
